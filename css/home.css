@@ -1,0 +1,43 @@
+body {
+    margin: auto;
+}
+
+/* Home Container Styles */
+.home-container {
+    height: 50%;
+    left: 50%;
+    position: fixed;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+}
+
+h1 {
+    padding-top: 50px;
+    text-align: center;
+}
+
+.new-plan {
+    margin-left: 25%;
+    margin-right: 25%;
+    padding-top: 40px;
+}
+
+/* Button Styles */
+button {
+    background-color: white;
+    border: thin solid;
+    color: #72a022;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    grid-row: 2;
+    grid-column: 1 / span 4;
+    height: 40px;
+    margin: 20px 0;
+}
+
+.new-plan button:hover {
+    background-color: #72a022;
+    color: white;
+}
