@@ -3,12 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <title>Advisor Advise It</title>
+    <link rel="stylesheet" href="/advise-it/css/advisor.css">
+    <script src="/advise-it/js/advisor.js"></script>
 </head>
+
 <body>
     <div class="main-container">
 
         <div class="header">
             <h1>Advise It</h1>
+        </div>
+
+        <!-- Token -->
+        <div class="token">
+            <button class="button" >Token: <a id="token"></a></button>
+        </div>
+
+        <!-- Button Container -->
+        <div class="button-container">
+            <a href="advisor">
+                <button id="new-plan">Create Plan</button>
+            </a>
+        </div>
+
+        <!-- Quarter Containers -->
+        <div class="quarters-container">
+            <!-- FALL Container -->
+            <div class="quarters-boxes">
+                <h2>Fall</h2>
+                <div class="class-plan">
+                    <div class="schedule">
+
+                    </div>
+                    <div class="notes">
+                        <label for="fall-notes">Notes:</label>
+                        <textarea id="fall-notes" name="notes" rows="4" cols="50"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WINTER Container -->
+            <div class="quarters-boxes">
+                <h2>Winter</h2>
+                <div class="class-plan">
+                    <div class="schedule">
+
+                    </div>
+                    <div class="notes">
+                        <label for="winter-notes">Notes:</label>
+                        <textarea id="winter-notes" name="notes" rows="4" cols="50"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Spring Container -->
+            <div class="quarters-boxes">
+                <h2>Spring</h2>
+                <div class="class-plan">
+                    <div class="schedule">
+
+                    </div>
+                    <div class="notes">
+                        <label for="spring-notes">Notes:</label>
+                        <textarea id="spring-notes" name="notes" rows="4" cols="50"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summer Container -->
+            <div class="quarters-boxes">
+                <h2>Summer</h2>
+                <div class="class-plan">
+                    <div class="schedule">
+
+                    </div>
+
+                    <div class="notes">
+                        <label for="summer-notes">Notes:</label>
+                        <textarea id="summer-notes" name="notes" rows="4" cols="50"></textarea>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
