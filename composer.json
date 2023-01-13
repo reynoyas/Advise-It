@@ -1,0 +1,14 @@
+{
+  "name": "yreynoso/advise-it",
+  "description": "Advise It",
+  "license": "open source",
+  "authors": [
+    {
+      "name": "Yasaira Reynoso",
+      "email": "reynoso.yasaira@student.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  }
+}
