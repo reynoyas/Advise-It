@@ -119,7 +119,7 @@ input {
     margin: 20px 0;
 }
 
-input:hover {
+.save-button:hover {
     background-color: #72a022;
     color: white;
 }
