@@ -12,6 +12,7 @@ session_start();
 
 // Create an instance of the Base class
 $f3 = Base::instance();
+//$con = new C
 $dataLayer = new DataLayer();
 
 // Define a default route
@@ -21,13 +22,15 @@ $f3->route('GET /', function (){
 });
 
 $f3->route('GET|POST /advisor', function (){
+    // If the form has been posted
     if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        $_SESSION['class1'] = $_POST['class1'];
-        $_SESSION['class1'] = $_POST['class1'];
-        $_SESSION['class1'] = $_POST['class1'];
-        $_SESSION['fall-notes'] = $_POST['fall-notes'];
-
+//        $_SESSION['class1'] = $_POST['class1'];
+//        $_SESSION['class2'] = $_POST['class2'];
+//        $_SESSION['class3'] = $_POST['class3'];
+//        $_SESSION['fallNotes'] = $_POST['fallNotes'];
+        $fallClass1 = $_REQUEST['fallClass1'];
     }
+
     $view = new Template();
     echo $view->render('views/advisor.html');
 });

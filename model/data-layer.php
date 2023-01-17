@@ -31,18 +31,25 @@ class DataLayer
     function saveData($data)
     {
         // Define query
-        $sql = "INSERT INTO advise_it(token) 
-        VALUES(:token, :fall_class1, :fall_class2, :fall_class3, :fall_notes,
-               :winter_class1, :winter_class2, :winter_class3, :winter_notes,
-               :spring_class1, :spring_class2, :spring_class3, :spring_notes,
-               :summer_class1, :summer_class2, :summer_class3, :summer_notes, :saved_date)";
+//        $sql = "INSERT INTO advise_it(token, fall_class1, fall_class2, fall_class3, fall_notes)
+//        VALUES(:token, :fall_class1, :fall_class2, :fall_class3, :fall_notes)";
 
+        $sql  = "INSERT INTO advise_it(token)
+        VALUES(:token)";
         // Prepare the statement
         $statement = $this->_dbh->prepare($sql);
 
         // Bind the parameters
-        //$statement->
+        $statement->bindParam(':token', $data->getToken());
+        $statement->bindParam(':fall_class1', $data->getFallClass1());
+        $statement->bindParam(':fall_class2', $data->getFallClass2());
+        $statement->bindParam(':fall_class3', $data->getFallClass3());
+        $statement->bindParam(':fall_notes', $data->getFallNotes());
 
-        return null;
+        $statement->execute();
+
+        $token = $this->_dbh->lastInsertId();
+
+        return $token;
     }
 }

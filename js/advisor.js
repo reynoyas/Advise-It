@@ -6,3 +6,6 @@ window.onload = function (){
 
     document.getElementById('token').innerHTML = token();
 };
+// function newToken(){
+//     document.getElementById('token').innerHTML = token();
+// }

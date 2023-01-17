@@ -16,30 +16,30 @@
 
         <!-- Token -->
         <div class="token">
-            <button class="button" >Token: <a id="token"></a></button>
+            <button class="button">Token: <a id="token"></a></button>
         </div>
 
         <!-- Button Container -->
         <div class="button-container">
             <a href="advisor">
-                <button id="new-plan">Create Plan</button>
+                <button id="new-plan" onclick="newToken()">Create Plan</button>
             </a>
         </div>
 
         <!-- Quarter Containers -->
-        <form method="post" action="#" class="quarters-container">
+        <form method="post" action="<?=$_SERVER['PHP_SELF'];?>" class="quarters-container">
             <!-- FALL Container -->
             <div class="quarters-boxes">
                 <h2>Fall</h2>
                 <div class="class-plan">
                     <div class="schedule">
-                        <input type="text" name="fall-class1">
-                        <input type="text" name="fall-class2">
-                        <input type="text" name="fall-class3">
+                        <input type="text" name="fallClass1">
+                        <input type="text" name="fallClass2">
+                        <input type="text" name="fallClass3">
                     </div>
                     <div class="notes">
-                        <label for="fall-notes">Notes:</label>
-                        <textarea id="fall-notes" name="notes" rows="4" cols="50"></textarea>
+                        <label for="fallNotes">Notes:</label>
+                        <textarea id="fallNotes" name="fallNotes" rows="4" cols="50"></textarea>
                     </div>
                 </div>
             </div>
@@ -87,7 +87,7 @@
                 </div>
             </div>
 
-            <input class="save-button" type="submit" value="Save">
+            <input class="save-button" type="submit" value="Save" name="submit">
         </form>
 
     </div>
