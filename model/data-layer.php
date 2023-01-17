@@ -16,7 +16,6 @@ class DataLayer
         try{
             // Instantiate a PDO database object
             $this->_dbh  = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
-            //echo "It is working";
         }
         catch(PDOException $e){
             echo "Error connecting to DB " . $e->getMessage();
@@ -34,8 +33,9 @@ class DataLayer
 //        $sql = "INSERT INTO advise_it(token, fall_class1, fall_class2, fall_class3, fall_notes)
 //        VALUES(:token, :fall_class1, :fall_class2, :fall_class3, :fall_notes)";
 
-        $sql  = "INSERT INTO advise_it(token)
-        VALUES(:token)";
+        $sql = "INSERT INTO advise_it(token, fall_class1)
+        VALUES(:token, :fall_class1)";
+
         // Prepare the statement
         $statement = $this->_dbh->prepare($sql);
 
