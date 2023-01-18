@@ -12,7 +12,6 @@ session_start();
 
 // Create an instance of the Base class
 $f3 = Base::instance();
-$con = new Controller($f3);
 $dataLayer = new DataLayer();
 
 // Define a default route

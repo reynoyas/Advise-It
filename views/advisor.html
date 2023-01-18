@@ -16,13 +16,13 @@
 
         <!-- Token -->
         <div class="token">
-            <button class="button">Token: <a id="token"></a></button>
+            <button class="button"  name="token">Token: <h9 id="token" name="token"></h9></button>
         </div>
 
         <!-- Button Container -->
         <div class="button-container">
             <a href="advisor">
-                <button id="new-plan" onclick="newToken()">Create Plan</button>
+                <button id="new-plan">Create Plan</button>
             </a>
         </div>
 
@@ -33,9 +33,7 @@
                 <h2>Fall</h2>
                 <div class="class-plan">
                     <div class="schedule">
-                        <input type="text" name="fall_class1">
-                        <input type="text" name="fall_class2">
-                        <input type="text" name="fall_class3">
+                        <textarea name="fall" rows="4" cols="10"></textarea>
                     </div>
                     <div class="notes">
                         <label for="fallNotes">Notes:</label>
@@ -49,7 +47,7 @@
                 <h2>Winter</h2>
                 <div class="class-plan">
                     <div class="schedule">
-
+                        <textarea name="winter" rows="4" cols="10"></textarea>
                     </div>
                     <div class="notes">
                         <label for="winter-notes">Notes:</label>
@@ -63,7 +61,7 @@
                 <h2>Spring</h2>
                 <div class="class-plan">
                     <div class="schedule">
-
+                        <textarea name="spring" rows="4" cols="10"></textarea>
                     </div>
                     <div class="notes">
                         <label for="spring-notes">Notes:</label>
@@ -77,7 +75,7 @@
                 <h2>Summer</h2>
                 <div class="class-plan">
                     <div class="schedule">
-
+                        <textarea name="summer" rows="4" cols="10"></textarea>
                     </div>
 
                     <div class="notes">
