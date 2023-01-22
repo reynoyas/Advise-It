@@ -101,6 +101,7 @@ textarea {
     outline: none;
     padding: 10px 10px;
     width: 90%;
+    font-size: 13px;
 }
 
 label {
