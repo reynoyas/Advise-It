@@ -33,13 +33,14 @@ class DataLayer
         $springNotes = $_POST['spring_notes'];
         $summer = $_POST['summer'];
         $summerNotes = $_POST['summer_notes'];
+        $advisor = $this->advisorGenerator();
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Define query
             $sql = "INSERT INTO advise_it(token, fall, fall_notes, winter, winter_notes,
-                      spring, spring_notes, summer, summer_notes)
+                      spring, spring_notes, summer, summer_notes, advisor)
             VALUES(:token, :fall, :fall_notes, :winter, :winter_notes, 
-                   :spring, :spring_notes, :summer, :summer_notes)";
+                   :spring, :spring_notes, :summer, :summer_notes, :advisor)";
             // Prepare the statement
             $statement = $this->_dbh->prepare($sql);
 
@@ -53,6 +54,7 @@ class DataLayer
             $statement->bindParam(':spring_notes', $springNotes);
             $statement->bindParam(':summer', $summer);
             $statement->bindParam(':summer_notes', $summerNotes);
+            $statement->bindParam(':advisor', $advisor);
 
             // Execute the query
             $statement->execute();
@@ -91,5 +93,10 @@ class DataLayer
         // Process the results (get the primary key)
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
         return $result;
+    }
+
+    function advisorGenerator(){
+        $advisor = array("Ken", "Tyler");
+        return $advisor[array_rand($advisor)];
     }
 }

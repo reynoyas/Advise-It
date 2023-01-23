@@ -25,7 +25,6 @@ class Controller
         $summer = "";
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            //$token = $_POST['token'];
             $fall = $_POST['fall'];
             $fallNotes = $_POST['fall_notes'];
             $winter = $_POST['winter'];
@@ -37,6 +36,7 @@ class Controller
         }
 
         $token = $GLOBALS['dataLayer']->tokenGenerator();
+        $advisor = $GLOBALS['dataLayer']->advisorGenerator();
 
         $this->_f3->set('token', $token);
         $this->_f3->set('fall', $fall);
@@ -47,8 +47,10 @@ class Controller
         $this->_f3->set('spring_notes', $springNotes);
         $this->_f3->set('summer', $summer);
         $this->_f3->set('summer_notes', $summerNotes);
+        $this->_f3->set('advisor', $advisor);
 
         $GLOBALS['dataLayer']->savePlan();
+        $GLOBALS['dataLayer']->getPlan();
         $view = new Template();
         echo $view->render('views/advisor.html');
     }

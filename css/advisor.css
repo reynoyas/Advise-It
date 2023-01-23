@@ -49,6 +49,22 @@ button {
     margin-right: 10px;
 }
 
+/* Students Advisor Name Styles */
+.advisor-container {
+    background-color: white;
+    border: thin solid;
+    color: #72a022;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    grid-row: 2;
+    grid-column: 4;
+    height: 30px;
+    margin: 20px 0;
+    padding-top: 10px;
+    padding-left:  5px;
+}
+
 /* Quarter Styles */
 .quarters-container {
     grid-row: 3;

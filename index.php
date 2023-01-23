@@ -20,8 +20,9 @@ $f3->route('GET /', function (){
     $GLOBALS['con']->home();
 });
 
-$f3->route('GET|POST /advisor', function (){
+$f3->route('GET|POST /plan', function (){
     $GLOBALS['con']->plan();
+
 });
 
 $f3->run();
