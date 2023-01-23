@@ -22,7 +22,18 @@ $f3->route('GET /', function (){
 
 $f3->route('GET|POST /plan', function (){
     $GLOBALS['con']->plan();
+});
 
+$f3->route('GET|POST /admin-login', function (){
+    $GLOBALS['con']->login();
+});
+
+$f3->route('GET|POST /logout', function (){
+    $GLOBALS['con']->logout();
+});
+
+$f3->route('GET /admin', function (){
+    $GLOBALS['con']->admin();
 });
 
 $f3->run();

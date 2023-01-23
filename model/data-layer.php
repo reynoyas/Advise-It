@@ -15,7 +15,6 @@ class DataLayer
         try {
             // Instantiate a PDO database object
             $this->_dbh = new PDO(DB_DSN, DB_USERNAME, DB_PASSWORD);
-//            echo "It is working";
         }
         catch(PDOException $e){
             echo "Error connecting to DB " . $e->getMessage();
@@ -67,7 +66,7 @@ class DataLayer
 
     function tokenGenerator()
     {
-        $token = $_GET['token'];
+//        $token = $_GET['token'];
         $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ23456789abcdefghijklmnopqrstuvwxyz';
         $result = "";
 
@@ -75,7 +74,6 @@ class DataLayer
             $chosen_char = rand(0, strlen($characters) - 1);
             $result = $result . $characters[$chosen_char];
         }
-//        echo $result;
         return $result;
     }
 
