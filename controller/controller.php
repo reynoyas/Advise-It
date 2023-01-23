@@ -36,6 +36,9 @@ class Controller
             $summerNotes = $_POST['summer_notes'];
         }
 
+        $token = $GLOBALS['dataLayer']->tokenGenerator();
+
+        $this->_f3->set('token', $token);
         $this->_f3->set('fall', $fall);
         $this->_f3->set('fall_notes', $fallNotes);
         $this->_f3->set('winter', $winter);

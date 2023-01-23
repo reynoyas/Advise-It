@@ -24,6 +24,7 @@ class DataLayer
 
     function savePlan()
     {
+        $token = $this->tokenGenerator();
         $fall = $_POST['fall'];
         $fallNotes = $_POST['fall_notes'];
         $winter = $_POST['winter'];
@@ -35,14 +36,15 @@ class DataLayer
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Define query
-            $sql = "INSERT INTO advise_it(fall, fall_notes, winter, winter_notes,
+            $sql = "INSERT INTO advise_it(token, fall, fall_notes, winter, winter_notes,
                       spring, spring_notes, summer, summer_notes)
-            VALUES(:fall, :fall_notes, :winter, :winter_notes, 
+            VALUES(:token, :fall, :fall_notes, :winter, :winter_notes, 
                    :spring, :spring_notes, :summer, :summer_notes)";
             // Prepare the statement
             $statement = $this->_dbh->prepare($sql);
 
             // Bind the parameters
+            $statement->bindParam(':token', $token);
             $statement->bindParam(':fall', $fall);
             $statement->bindParam(':fall_notes', $fallNotes);
             $statement->bindParam(':winter', $winter);
@@ -61,17 +63,18 @@ class DataLayer
         }
     }
 
-    function token_generator()
+    function tokenGenerator()
     {
         $token = $_GET['token'];
-        $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ23456789';
+        $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ23456789abcdefghijklmnopqrstuvwxyz';
         $result = "";
 
         for ($i = 0; $i < 6; $i++) {
-            $chosen_char = rand(0, len($characters) - 1);
+            $chosen_char = rand(0, strlen($characters) - 1);
             $result = $result . $characters[$chosen_char];
         }
-        echo $result;
+//        echo $result;
+        return $result;
     }
 
     function getPlan()
