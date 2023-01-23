@@ -13,25 +13,12 @@ class Controller
 
     function home()
     {
-        $view = new Template();
-        echo $view->render('views/home.html');
-    }
-
-    function plan()
-    {
-        $GLOBALS['dataLayer']->savePlan();
-        $GLOBALS['dataLayer']->getPlan();
-        $view = new Template();
-        echo $view->render('views/advisor.html');
-    }
-
-    function login(){
         $un = "";
         $validLogin = true;
 
         // If the user is already logged in
         if(isset($_SESSION['username'])){
-            // Redirect to home page
+            // Redirect to admin page
             header('location: admin');
         }
 
@@ -59,9 +46,16 @@ class Controller
             // Invalid login -- set flag variable
             $validLogin = false;
         }
-
         $view = new Template();
-        echo $view->render('views/login.php');
+        echo $view->render('views/home.html');
+    }
+
+    function plan()
+    {
+        $GLOBALS['dataLayer']->savePlan();
+        $GLOBALS['dataLayer']->getPlan();
+        $view = new Template();
+        echo $view->render('views/advisor.html');
     }
 
     function logout(){

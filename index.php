@@ -16,7 +16,7 @@ $con = new Controller($f3);
 $dataLayer = new DataLayer();
 
 // Define a default route
-$f3->route('GET /', function (){
+$f3->route('GET|POST /', function (){
     $GLOBALS['con']->home();
 });
 
@@ -24,9 +24,9 @@ $f3->route('GET|POST /plan', function (){
     $GLOBALS['con']->plan();
 });
 
-$f3->route('GET|POST /admin-login', function (){
-    $GLOBALS['con']->login();
-});
+//$f3->route('GET|POST /admin-login', function (){
+//    $GLOBALS['con']->login();
+//});
 
 $f3->route('GET|POST /logout', function (){
     $GLOBALS['con']->logout();

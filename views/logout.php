@@ -2,4 +2,4 @@
 session_start();
 session_destroy();
 $_SESSION = array();
-header('location: admin-login');
+header('location: advise-it/');

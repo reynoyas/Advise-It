@@ -4,23 +4,39 @@ body {
 
 /* Home Container Styles */
 .home-container {
-    height: 50%;
-    left: 50%;
-    position: fixed;
-    top: 40%;
-    transform: translate(-50%, -50%);
-    width: 30%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-content: center;
+    margin: 10em;
 }
 
-h1 {
-    padding-top: 50px;
-    text-align: center;
+.new-plan, .form-container {
+    height: 20em;
+    padding: 50px;
+    align-items: center;
+
 }
 
+/* New Plan styles */
 .new-plan {
-    margin-left: 25%;
-    margin-right: 25%;
-    padding-top: 40px;
+    border: solid;
+    width: 15em;
+    float: right;
+    grid-column: 2;
+    display: grid;
+}
+
+/* Form Styles */
+.form-container {
+    border: solid;
+    grid-column: 3;
+    display: grid;
+
+}
+
+input {
+    height: 20px;
+    font-size: 15px;
 }
 
 /* Button Styles */
@@ -31,13 +47,11 @@ button {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 15px;
     font-weight: bold;
-    grid-row: 2;
-    grid-column: 1 / span 4;
     height: 40px;
     margin: 20px 0;
 }
 
-.new-plan button:hover {
+button:hover {
     background-color: #72a022;
     color: white;
 }
