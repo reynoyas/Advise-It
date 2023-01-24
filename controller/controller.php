@@ -54,6 +54,15 @@ class Controller
     {
         $GLOBALS['dataLayer']->savePlan();
         $GLOBALS['dataLayer']->getPlan();
+
+        // Save advisor to pass into plan
+        $advisor = $GLOBALS['dataLayer']->advisorGenerator();
+        $this->_f3->set('advisor', $advisor);
+
+        // Save token to pass into plan
+        $token = $GLOBALS['dataLayer']->tokenGenerator();
+        $this->_f3->set('token', $token);
+
         $view = new Template();
         echo $view->render('views/advisor.html');
     }
