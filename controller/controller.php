@@ -69,8 +69,12 @@ class Controller
             $_SESSION['page'] = "admin";
 
             // Redirect user to login page
-            header('location: admin-login');
+            header('location: /');
         }
+
+        $plan = $GLOBALS['dataLayer']->getPlan();
+        $this->_f3->set('plan', $plan);
+
         $view = new Template();
         echo $view->render('views/admin.html');
     }

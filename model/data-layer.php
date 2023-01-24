@@ -80,7 +80,7 @@ class DataLayer
     function getPlan()
     {
         // Define query
-        $sql = "SELECT * FROM advise_it WHERE token = 'token'";
+        $sql = "SELECT * FROM advise_it ORDER BY saved_date";
 
         // Prepare the statement
         $statement = $this->_dbh->prepare($sql);
@@ -97,4 +97,19 @@ class DataLayer
         $advisor = array("Ken", "Tyler");
         return $advisor[array_rand($advisor)];
     }
+
+   function displayPlan(){
+       // Define query
+       $sql = "SELECT * FROM advise_it WHERE token = 'token'";
+
+       // Prepare the statement
+       $statement = $this->_dbh->prepare($sql);
+
+       // Execute the query
+       $statement->execute();
+
+       // Process the results (get the primary key)
+       $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+       return $result;
+   }
 }
