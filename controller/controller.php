@@ -69,7 +69,7 @@ class Controller
             $_SESSION['page'] = "admin";
 
             // Redirect user to login page
-            header('location: /');
+            header('location: /admin');
         }
 
         $plan = $GLOBALS['dataLayer']->getPlan();
