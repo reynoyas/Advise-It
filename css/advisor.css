@@ -49,6 +49,20 @@ button {
     margin-right: 10px;
 }
 
+/* Print Button */
+#print-button {
+    width: 50px;
+    grid-row: 2;
+    grid-column: 3;
+    margin-left: 90px;
+    margin-right: 10px;
+}
+
+@media print {
+    #main-container {
+        height: 40em;
+    }
+}
 /* Students Advisor Name Styles */
 .advisor-container {
     background-color: white;
