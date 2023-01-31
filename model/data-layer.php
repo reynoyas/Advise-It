@@ -21,9 +21,8 @@ class DataLayer
         }
     }
 
-    function savePlan()
+    function savePlan($token, $advisor)
     {
-        $token = $this->tokenGenerator();
         $fall = $_POST['fall'];
         $fallNotes = $_POST['fall_notes'];
         $winter = $_POST['winter'];
@@ -32,7 +31,6 @@ class DataLayer
         $springNotes = $_POST['spring_notes'];
         $summer = $_POST['summer'];
         $summerNotes = $_POST['summer_notes'];
-        $advisor = $this->advisorGenerator();
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Define query
@@ -66,7 +64,6 @@ class DataLayer
 
     function tokenGenerator()
     {
-//        $token = $_GET['token'];
         $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ23456789abcdefghijklmnopqrstuvwxyz';
         $result = "";
 

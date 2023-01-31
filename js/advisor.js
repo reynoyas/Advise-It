@@ -1,11 +1,7 @@
-window.onload = function (){
-    // token
-    let token = function() {
-        return Math.random().toString(36).substr(2,6);
-    };
+let form = document.getElementById("save-plan");
+function submitForm(event){
+    // Preventing page refresh
+    event.preventDefault();
+}
 
-    document.getElementById('token').innerHTML = token();
-};
-// function newToken(){
-//     document.getElementById('token').innerHTML = token();
-// }
+form.addEventListener('submit', submitForm);
