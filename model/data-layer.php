@@ -21,6 +21,12 @@ class DataLayer
         }
     }
 
+    /**
+     * This function is to save info from page into database
+     * @param $token 'is formed by tokenGenerator()'
+     * @param $advisor 'is formed by advisorGenerator()'
+     * @return string|void
+     */
     function savePlan($token, $advisor)
     {
         $fall = $_POST['fall'];
@@ -57,11 +63,14 @@ class DataLayer
             $statement->execute();
 
             // Process the results (get the primary key)
-            $id = $this->_dbh->lastInsertId();
-            return $id;
+            return $this->_dbh->lastInsertId();
         }
     }
 
+    /**
+     * Generates a random token
+     * @return string
+     */
     function tokenGenerator()
     {
         $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ23456789abcdefghijklmnopqrstuvwxyz';
@@ -74,6 +83,11 @@ class DataLayer
         return $result;
     }
 
+    /**
+     * Gets plan from database to display all data rows
+     * Is ordered by the date it is saved
+     * @return array|false
+     */
     function getPlan()
     {
         // Define query
@@ -86,15 +100,21 @@ class DataLayer
         $statement->execute();
 
         // Process the results (get the primary key)
-        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-        return $result;
+        return $statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
+    /** Generates an advisor randomly
+     * @return string
+     */
     function advisorGenerator(){
         $advisor = array("Ken", "Tyler");
         return $advisor[array_rand($advisor)];
     }
 
+    /**
+     * Displays all data from a specific row using the token
+     * @return array|false
+     */
    function displayPlan(){
        // Define query
        $sql = "SELECT * FROM advise_it WHERE token = 'token'";
@@ -106,7 +126,6 @@ class DataLayer
        $statement->execute();
 
        // Process the results (get the primary key)
-       $result = $statement->fetchAll(PDO::FETCH_ASSOC);
-       return $result;
+       return $statement->fetchAll(PDO::FETCH_ASSOC);
    }
 }

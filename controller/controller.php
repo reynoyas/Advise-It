@@ -5,12 +5,15 @@ class Controller
     // f3 object
     private $_f3;
 
-
     function __construct($f3)
     {
         $this->_f3 = $f3;
     }
 
+    /**
+     * The home page displays create plan button and login page info
+     * The login page requires correct credentials
+     */
     function home()
     {
         $un = "";
@@ -42,14 +45,15 @@ class Controller
                 $page = isset($_SESSION['page']) ? $_SESSION['page'] : "admin";
                 header('location: '. $page);
             }
-
-            // Invalid login -- set flag variable
-            $validLogin = false;
         }
         $view = new Template();
         echo $view->render('views/home.html');
     }
 
+    /**
+     * This function calls token and advisor generator
+     * and passes it into savePlan, which will display on the plan page
+     */
     function plan()
     {
         // Save token to pass into plan
@@ -67,11 +71,18 @@ class Controller
         echo $view->render('views/advisor.html');
     }
 
+    /**
+     * Will logout and redirect to home page
+     */
     function logout(){
         $view = new Template();
         echo $view->render('views/logout.php');
     }
 
+    /**
+     * The admin page will display the data from database
+     * If the session is empty the user will be redirected to login page
+     */
     function admin(){
         if(empty($_SESSION['username'])){
             // Store the current page in the session
