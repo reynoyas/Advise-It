@@ -115,17 +115,22 @@ class DataLayer
      * Displays all data from a specific row using the token
      * @return array|false
      */
-   function displayPlan(){
+   function retrievePlan($token){
        // Define query
-       $sql = "SELECT * FROM advise_it WHERE token = 'token'";
+       $sql = "SELECT * FROM advise_it WHERE token = $token";
+        echo $sql;
+       if($token == true){
+           // Prepare the statement
+           $statement = $this->_dbh->prepare($sql);
 
-       // Prepare the statement
-       $statement = $this->_dbh->prepare($sql);
+           // Execute the query
+           $statement->execute();
 
-       // Execute the query
-       $statement->execute();
-
-       // Process the results (get the primary key)
-       return $statement->fetchAll(PDO::FETCH_ASSOC);
+           // Process the results (get the primary key)
+           return $statement->fetchAll(PDO::FETCH_ASSOC);
+       }
+       else {
+          return false;
+       }
    }
 }

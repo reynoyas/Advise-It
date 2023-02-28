@@ -58,6 +58,7 @@ class Controller
     {
         // Save token to pass into plan
         $token = $GLOBALS['dataLayer']->tokenGenerator();
+        $_SESSION['token'] = $token;
         $this->_f3->set('token', $token);
 
         // Save advisor to pass into plan
@@ -65,10 +66,25 @@ class Controller
         $this->_f3->set('advisor', $advisor);
 
         $GLOBALS['dataLayer']->savePlan($token, $advisor);
-        $GLOBALS['dataLayer']->getPlan();
 
         $view = new Template();
         echo $view->render('views/advisor.html');
+    }
+
+    /**
+     * When a token is used in the url, it displays the data
+     * associated to that plan
+     */
+    function retrieve()
+    {
+        header('location: advise-it/saved-plan/'.$token);
+        $_SESSION['token'] = $token;
+
+        $plan = $GLOBALS['dataLayer']->retrievePlan($token);
+        $this->_f3->set('plan', $plan);
+
+        $view = new Template();
+        echo $view->render('views/retrieve-plan.html/');
     }
 
     /**

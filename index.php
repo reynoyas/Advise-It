@@ -24,9 +24,9 @@ $f3->route('GET|POST /plan', function (){
     $GLOBALS['con']->plan();
 });
 
-//$f3->route('GET|POST /admin-login', function (){
-//    $GLOBALS['con']->login();
-//});
+$f3->route('GET /saved-plan*', function (){
+    $GLOBALS['con']->retrieve();
+});
 
 $f3->route('GET|POST /logout', function (){
     $GLOBALS['con']->logout();
